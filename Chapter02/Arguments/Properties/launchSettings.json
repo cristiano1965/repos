@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Arguments": {
+      "commandName": "Project",
+      "commandLineArgs": "white black 100"
+    }
+  }
+}

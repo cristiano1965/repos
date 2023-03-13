@@ -1,0 +1,25 @@
+﻿@using Packt.Shared
+
+@{
+    ViewData["Title"] = "Services";
+    Product[]? products = ViewData["productsCha"] as Product[]; 
+}
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    @if (products is not null)
+    {
+        <h2>Products that start with Cha using OData</h2>
+        @foreach(Product p in products)
+        {
+            <span class="badge bg-info text-dark">
+                @p.ProductId
+                @p.ProductName
+                @(p.UnitPrice is null ? "" : p.UnitPrice.Value.ToString("C"))
+            </span>
+        }
+    }
+    else
+    {
+        <span class="badge bg-info text-dark">No products found.</span>
+    }
+</div>

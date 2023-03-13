@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net6.0\Immagini\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\Immagini\categories.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category1.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category2.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category3.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category4.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category5.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category6.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category7.jpeg" />
+    <None Include="bin\Debug\net6.0\Immagini\category8.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+		<PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
+  </ItemGroup>
+
+</Project>

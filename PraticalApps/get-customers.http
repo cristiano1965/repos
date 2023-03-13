@@ -1,0 +1,9 @@
+GET https://localhost:5001/api/customers/ HTTP/1.1
+###
+GET https://localhost:5001/api/customers/?country=USA HTTP/1.1
+Accept: application/XML
+###
+GET https://localhost:5001/api/customers/alfki HTTP/1.1
+###
+GET https://localhost:5001/api/customers/abcxy HTTP/1.1
+

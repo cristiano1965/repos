@@ -1,0 +1,8 @@
+﻿ Script donte per generare la libreria per Entity Models del database SQL server Northwind (attenzione il primo comando non crea EmployeeTerritories, che può essere creato con il secondo e poi aggiungerne a mano il dbset nel context)
+ 
+ dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true" Microsoft.EntityFrameworkCore.SQLServer --output-dir AutoGenModels --namespace Packt.Shared --data-annotations 
+ 
+  dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true" Microsoft.EntityFrameworkCore.SQLServer --table EmployeeTerritories --output-dir AutoGenModels --namespace Packt.Shared --data-annotations
+  
+  per ottenere l'ultimo link di bootstrap
+  https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template
