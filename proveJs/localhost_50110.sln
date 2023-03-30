@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProvaSito", "http://localhost:50110", "{A799B2F6-8BB7-4E0D-A41A-D00B13A0E730}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50110"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Documents\My Web Sites\ProvaSito\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50110\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50110"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\Documents\My Web Sites\ProvaSito\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50110\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\Documents\My Web Sites\ProvaSito\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A799B2F6-8BB7-4E0D-A41A-D00B13A0E730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A799B2F6-8BB7-4E0D-A41A-D00B13A0E730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13109C11-6AB6-4813-8B8C-7AB8C134E109}
+	EndGlobalSection
+EndGlobal
