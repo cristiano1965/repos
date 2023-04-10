@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProvaSito", "http://localhost:50110", "{A799B2F6-8BB7-4E0D-A41A-D00B13A0E730}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "provasito", "http://localhost:50111/provasito", "{320A25CF-80FE-4E84-BB87-E0CD564B8D86}"
 	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_50110"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Documents\My Web Sites\ProvaSito\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50110\"
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		Debug.AspNetCompiler.VirtualPath = "/provasito"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\inetpub\wwwroot\provasito\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\provasito\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_50110"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\Documents\My Web Sites\ProvaSito\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50110\"
+		Release.AspNetCompiler.VirtualPath = "/provasito"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\inetpub\wwwroot\provasito\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\provasito\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\..\..\Documents\My Web Sites\ProvaSito\"
+		SlnRelativePath = "..\..\..\..\..\inetpub\wwwroot\provasito\"
 	EndProjectSection
 EndProject
 Global
@@ -29,13 +29,13 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A799B2F6-8BB7-4E0D-A41A-D00B13A0E730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A799B2F6-8BB7-4E0D-A41A-D00B13A0E730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{320A25CF-80FE-4E84-BB87-E0CD564B8D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{320A25CF-80FE-4E84-BB87-E0CD564B8D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {13109C11-6AB6-4813-8B8C-7AB8C134E109}
+		SolutionGuid = {C3363C75-9279-41E4-AA2D-74705DE3BB5D}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Capitolo 7 - Eventi</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+    <script>
+        // al caricamento della pagina associo la funzione "evento()"
+        // che a sua volta imposta una serie di eventi sul "mioform.pulsante", eventi che colorano e/o scrivono un testo diverso nel textbox
+        //
+
+       
+
+        window.onload = evento;
+        window.onresize = function () { scrivi( "onResize") };
+
+        function evento() {
+            
+
+            scrivi("onLoad");
+            
+            // questi sono per prova 1
+            MioForm.pulsante.onclick = function () { // su click visualizza "click!" nella textbox
+                finestra('click!');
+            }
+            MioForm.pulsante.onmousedown = function () { //pressione prolungata del tasto sinistro del mouse sull'oggetto
+                finestra('mouse down!');
+            }
+            MioForm.pulsante.onmouseup = function () { // si attiva al rilascio del tasto sinistro sull'oggetto; questo si verifica e viene visualizzato, ma la scritta viene poi subito sovrapposto dalquella del click
+                finestra('mouse up!');
+            }
+            MioForm.pulsante.onmouseout = function () { // quando si esce dall'oggetto con il mouse
+                finestra('mouse out!');
+                coloraCasella('blue');
+
+                //dopo 2 secondi viene svuotata la textbox
+                setTimeout("var f = finestra('')", 2000);
+            }
+            MioForm.pulsante.onmouseover = function () { //quando si va sopra l'oggetto con il mouse
+                finestra('mouse over!');
+                coloraCasella('red');
+            }
+
+            // questi sono per prova 2
+
+            // quando clicco sulla cella del testo da copiare, il testo del DIV viene resettato
+            secondoForm.tocopy.onclick = function () {
+                document.getElementById("mioDiv").innerHTML = "Rilascia Qui!";
+            }
+
+            // quando sulla cella del testo da copiare inizio il DRAG ricevo l'oggetto di tipo event che, tra le sue proprietà 
+            // mi dice qual'è l'id dell'oggetto che ha scatenato l'evetdo (event.target.id) e una prioprietà (event.dataTransfer) su cui posso
+            // impostare un identificatore (esempio "MioID"), mediante il metodo "setData"  per salvare quello che mi serve (in questo caso salvo l'id dell'oggetto che ha scatenato l'evento)
+            secondoForm.tocopy.ondragstart = function (event) {
+                event.dataTransfer.setData("MioID", event.target.id);
+            }
+
+            // per prova3
+
+            // riceve l'evento OnKeyPress di un tasto sulla textbox ricerca
+            TerzoForm.Ricerca.onkeypress = function (event) {
+                AggiungiSelect(event.key, event.charCode);
+
+            }
+        }
+
+        // per prova1 
+        function finestra(messaggio) {
+            MioForm.casella.value = messaggio;
+        }
+        function coloraCasella(colore) {
+            MioForm.casella.style.backgroundColor = colore;
+        }
+
+        function cancelEvent() {
+            window.event.returnValue = false;
+        }
+
+        // per drag and drop (prova2)
+
+        // ricevo l'evento e leggo l'id ("MioID") dell'oggetto che lo ha scatenato  all'evento "ondragstart"
+        function drop(event) {
+            const data = event.dataTransfer.getData("MioID");
+            var testo = document.getElementById(data); //lo punto
+            var selection = testo.value.substring(testo.selectionStart, testo.selectionEnd); // ne leggo solo la parte selezionata
+            document.getElementById("mioDiv").innerHTML += '<p style="color:yellow;">' + selection +'</p>'; // aggiungo al miodiv la parte di testo selezionata all'inizio del drag
+            alert("Rilasciato!");
+            event.preventDefault(); // siccome sul form, dove c'è il div su cui rilascio il testo draggato, c'è il "post" parte la richiest URL con il testo droppato, quindi evitiamo che cioò accada
+        }
+
+        // per prova3
+
+        // visualizza all'interno della select i codici di tutti i tasti premuti
+        function AggiungiSelect(carattere, codiceAscii) {
+            // metodo 1 (vedi sotto new Option())
+            // opzione = new Option(); //crea un nuovo oggetto di tipo HTMLOptionElement (cioè un elemento per inserire un valore nella select tramite i tag <option>.....</option>)
+            // metodo 2 (vedi sotto con document.createElement("option"))
+            var opzione = document.createElement("option");
+            opzione.text = "Carattere: '" + carattere + "' - Ascii: " + codiceAscii; //crea l'opzione con la stringa composta da chiave e suo codice ascci
+            opzione.selected = true; // la imposta anche come selected
+            TerzoForm.sTasti.add(opzione, 0);  // aggiunge alla select questo nuovo elemento a partire dalla prima posizione (mediante il metodo "add" disponibile per l'oggetto select)
+
+           // event.preventDefault(); // siccome sul form  c'è il "post" premendo enter parte la richiest URL  quindi evitiamo che cioò accada
+        }
+
+        // per onload
+        function scrivi(qualeFase) {
+            dimensione = document.getElementById("dimensione");
+            var altezza = document.body.offsetHeight;
+            var larghezza = document.body.offsetWidth;
+            dimensione.innerHTML = " - Body = Altezza=" + altezza + " - Larghezza=" + larghezza + " - Evento:" + qualeFase;
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1>Esempio 8 - Eventi - <a href="Index.html">Home</a> <span id="dimensione"></span></h1>
+    <form name="MioForm">
+        prova 1): prova con il mouse (uscendo da "Vai !"" la textbox viene svuotata dopo 2 secondi)<br/>
+        <input type="button" name="pulsante" value="Vai! " />
+        <input type="text" name="casella" disabled />
+    </form>
+    <br/>
+    <form method="post" name="secondoForm">
+        prova 2: drag and drop-seleziona una parte di testo dalla textbox e poi dragga e droppa su "Rilascia qui!"
+        <div style="width: 600px;height: 100px; margin: 0 auto;">
+            <div style=" float: left; width: 300px;">
+                <input type="text" value="Testo da copiare" id="tocopy"/>
+            </div>
+            <!-- ondragenter si verifica quando si trascina un oggetto su un elemento valido della pagina
+                 ondragover= stessa cosa del dragenter ma dragover si verifica immediatamente dopo il dragenter
+                 in entrambi i casi, quando si verificano questi due eventi sul div di destinazione diciamo a javascript
+                 che non deve fare nulla, semplicemente impostando l'event.returnvalue a false
+    -->
+            <div id="mioDiv"
+                 ondragenter="cancelEvent()"
+                 ondragover="cancelEvent()"
+                 ondrop="drop(event)">
+                Rilascia Qui!
+            </div>
+        </div>
+    </form>
+    <br/>
+    prova 3: selezione parziale da Select
+    <form method="post" name="TerzoForm">
+        <input type="text" value=""  id="Ricerca"/>
+        <select id="sTasti" size="10">
+
+        </select>
+    </form>
+</body>
+
+</html>

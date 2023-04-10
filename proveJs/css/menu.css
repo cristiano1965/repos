@@ -1,0 +1,33 @@
+﻿/* colore del link item al passaggio */
+a.item :hover{
+    color: blue;
+}
+
+/* colore iniziale del link */
+a {
+    font-family: Verdana, Arial,  Helvetica, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+    color: #092c2c; 
+    font-weight: bold;
+}
+
+/* colori dei link generici al passaggio del mouse */
+a :hover {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        text-decoration: none;
+        color: #026563;
+        font-weight: bold;
+}
+
+/* style del DIV */
+#divMenu {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    height: 100px;
+    width: 200px;
+    visibility: hidden;
+    background: url("../images/menu_sfondo.gif");
+}

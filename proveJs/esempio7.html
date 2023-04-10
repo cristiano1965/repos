@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Capitolo 6 - Form e convalida</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+
+    <script>
+        function Nascondi() {
+            const messaggi = document.getElementsByClassName('messaggio');
+            for (var i = 0; i <= messaggi.length - 1; i++) {
+                messaggi[i].style.visibility = 'hidden';
+            }
+
+        }
+        function Convalida() {
+            Nascondi();
+            // conavlida nome = obbligatorio
+            if (document.Iscrizione.txtNome.value.length == 0) {
+                NomeMessaggio.style.visibility = 'visible';
+                NomeMessaggio.innerHTML = 'Campo Vuoto!';
+            }
+            if (document.Iscrizione.txtCognome.value.length == 0) {
+                CognomeMessaggio.style.visibility = 'visible';
+                CognomeMessaggio.innerHTML = 'Campo Vuoto!';
+            }
+            else
+                if (document.Iscrizione.txtCognome.value.length < 3) {
+                    CognomeMessaggio.style.visibility = 'visible';
+                    CognomeMessaggio.innerHTML = 'Minimo 3 caratteri!';
+                }
+            if (document.Iscrizione.txtEmail.value.length == 0) {
+                EmailMessaggio.style.visibility = 'visible';
+                EmailMessaggio.innerHTML = 'Campo Vuoto!';
+            } else {
+                // validazione con regex:
+                // ^ = verifica inizio della stringa, $= verifica la fine della stringa
+                // prima della chiocciola maiuscole, minuscole, da 0 a 9, underscore, punto e meno, dopo la chiocciola è simile: maiuscole, minuscole, da 0 a 9 ed il meno,
+                // l'ultimo gruppo può contenere maiuscole, minuscole, da 0 a 9 ma minimo 2 e massimo 4 caratteri
+                var emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9](2,4))+$/;
+                var emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/img;
+                if (!emailPattern.test(Iscrizione.txtEmail.value)) {
+                    EmailMessaggio.style.visibility = 'visible';
+                    EmailMessaggio.innerHTML = 'Email non valida!';
+                }
+            }
+        }
+    </script>
+
+
+</head>
+<body onload="Nascondi()">
+    <h1>Esempio 7 - Form e convalida - <a href="Index.html">Home</a></h1>
+    <form name="Iscrizione" method="post" action="">
+        <table>
+            <tr>
+                <td align="right">Nome:</td>
+                <td>
+                    <input type="text" name="txtNome" />
+                </td>
+                <td align="left">  <span class="messaggio" id="NomeMessaggio" style="color:red;"></span></td>
+            </tr>
+            <tr>
+                <td align="right">Cognome:</td>
+                <td><input type="text" name="txtCognome" /></td>
+                <td align="left">
+                    <span class="messaggio" id="CognomeMessaggio" style="color:red;"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Indirizzo email:</td>
+                <td><input type="text" name="txtEmail" /></td>
+                <td align="left">  <span class="messaggio" id="EmailMessaggio" style="color:red;"></span></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" name="Bottone"
+                           value="Convalida Dati" onclick="Convalida()" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+
+</html>

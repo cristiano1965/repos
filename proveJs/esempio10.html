@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Esempio10 - Finestre</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+    <script>
+        function CreaPopUp() { //crea la finestra 
+            finestra = window.open("esempio10-b.html", "Finestra", 'width=300,height=300');
+            //finestra.document.write('<h1>Creata Ora</h1>');
+        }
+        function CreaModale() { 
+            dia = new DialogArgs();
+            dia.Valore = "Scrivo Questo!";
+            finestra = window.showModalDialog("esempio10-c.html", dia, 'dialogWidth:300px; dialogHeight: 200px; center:yes;' + "edge:sunken;unadorned=yes;");
+        }
+        // questa funzione contiene tutti gli argomenti (nome=valore) che verranno passati alla modale
+        function DialogArgs() {
+            this.Valore = "";
+        }
+        function Modifica() { //modifica contenuto finestra precedentente creata
+            finestra.document.write('<h2>Nuovo messaggio</h2>');
+            finestra.document.bgColor = "red";
+        }
+    </script>
+
+</head>
+<body>
+    <input type="button" onclick="CreaPopUp()" value="Crea PopUp" />
+    <!--<input type="button" onclick="Modifica()" value="Modifica PopUp" />-->
+    <form name="mioForm">
+        <input type="text" name="Casella" disabled />
+    </form>
+    <input type="button" onclick="CreaModale()" value="Crea Modale" /> <!-- showModalDialog è deprecata-->
+</body>
+
+</html>

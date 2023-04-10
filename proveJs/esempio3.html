@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Esempio</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+
+</head>
+<body>
+    <h1>Esempio 3 - Vettori (con throw e try/catch)- <a href="Index.html">Home</a></h1>
+
+    <p>Calcolo della media</p>
+
+    <script>
+        // riceve array (se vuoto ne gerera uno casuale di 5 elementi con valori da 0 a 9)
+        // e flag per stampa si o no
+        function Media(v, stampa) {
+            var s = 0;
+            var casuale = false;
+            // se vettore passato vuoto, lo genera con 5 elementi random da  0 a 9 e li ordine
+            if (v == null) {
+                casuale = true;
+                var v = new Array();
+                for (var i = 0; i < 5; i++) {
+                    v[i] = Math.round(Math.random() * 9);
+                }
+                v = v.sort();
+            }
+            if (stampa)
+                if (casuale)
+                    document.write('Array(casuale): ');
+                else
+                    document.write('Array(): ');
+            for (var i = 0; i < v.length; i++) {
+                
+                if (stampa) {
+                    if (typeof v[i] != 'number') //controlla se numero altrimenti genera errore (catturato dalla catch)
+                        throw new TypeError('Elemento ' + i + " con valore <strong>\'" + v[i] + "\' </strong>non valido; media non calcolabile<br/>");
+                    else {
+                        s += v[i];
+                        document.write(v[i]);
+                        if (i != v.length - 1)
+                                document.write(',');
+                    }
+                }
+            }
+
+            return s / v.length;
+        }
+
+
+
+        try { document.write(' - media: ', Media([5, 3, 3, 7, 9, 6, 2, 3, 1, 1,], true), '<br/>'); }
+        catch (e) {
+            document.write(e);
+        }
+        // controlla se gli elementi sono tutti numerici, altrimenti gestisce errore
+        try {
+            document.write(' - media: ', Media([5, 3, 3, 1, 'a'], true), '<br/>');
+        }
+        catch (e) {
+            document.write(e);
+        }
+        try { document.write(' - media: ', Media(null, true), '<br/>'); }
+        catch (e) {
+            document.write(e);
+        }
+        try { document.write(' - media: ', Media([1, 2, 3], false), '<br/>'); }
+        catch (e) {
+            document.write(e);
+        }
+
+
+    </script>
+</body>
+</html>

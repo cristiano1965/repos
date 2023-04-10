@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Esempio9 - Usabilità dei form</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico">
+    <script>
+        // al caricamento ascondo i DIV usati per mostrare i msg di errreo
+        function Caricamento() {
+            MioForm.Nome.focus();
+            dNome.style.visibility = "hidden";
+            dCognome.style.visibility = "hidden";
+
+        }
+
+        // quando viene deselezionato (onBlur) il cognome controllo che non sia vuoto, altrimenti errore
+        function ControllaCognome() {
+            var vis = '';
+            vis = (MioForm.Cognome.value != "") ? "hidden" : "visible";
+            dCognome.style.visibility = vis;
+
+        }
+        // quando viene deselezionato (onBlur) il nome controllo che non sia vuoto, altrimenti errore
+        function ControllaNome() {
+            var vis = '';
+            vis = (MioForm.Nome.value != "") ? "hidden" : "visible";
+            dNome.style.visibility = vis;
+
+        }
+    </script>
+
+</head>
+<body onload="Caricamento()">
+    <h1>Esempio 9 - Usabilit&agrave; dei form - <a href="Index.html">Home</a> </h1>
+    <form  name="MioForm" method="get"> <!-- con POST  e file .html su IIS non funziona: errore 405-->
+        <fieldset>
+            <legend>Login</legend>
+            Nome: <input type="text" tabindex="0" name="Nome" onblur="ControllaNome()" />
+            Cognome: <input type="text" tabindex="1" name="Cognome" onblur="ControllaCognome()" />
+            <input type="submit" tabindex="2" value="Login">
+        </fieldset>
+    </form>
+    <div id="dNome">
+        <font color="red">Il nome non è presente!</font>
+    </div>
+    <div id="dCognome">
+        <font color="red">Il cognome non è presente!</font>
+    </div>
+
+</body>
+
+</html>

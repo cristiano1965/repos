@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Capitolo 5 - Javascript ed il browser</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+
+    <script>
+
+        //inserisce una nuova colonna nel thead
+        //inserisce una nuova colonna nel tbody con un valore costante
+        //aumenta di una colonna il tfoot
+
+        function Aumenta() {
+
+
+            // trovo la tabella nel DOM tramite il suo id
+            var tabella = document.getElementById("MiaTabella");
+
+            // conto quante solo le righe del thead (la variabile non viene poi usata)
+            var numThead = tabella.tHead.rows.length;
+
+            var header = document.querySelectorAll("#MiaTabella > thead > tr"); //seleziona i record di testata  contenente i th
+            var rigaHeader = header[0]; // prende il primo record di testata
+
+            var y = document.createElement('th'); //crea un nuovo th
+
+
+            rigaHeader.appendChild(y).appendChild(document.createTextNode('Colonna Aggiunta'));; //aggiunge il th, al quale aggiunge anche il contenuto, al record i testata
+
+            var footerTD = document.querySelectorAll("#MiaTabella > tfoot > tr > td"); //seleziona i record del footer e ne prende tutti i td
+
+            footerTD[0].colSpan++; //aumenta di 1 il colSpan del primo td (sul quale c'è scritto di quante colonne effettuare il colspan)
+
+            // aggiungo alla tabella un nuovo record
+            for (var z = 0; z < tabella.tBodies.length; z++) {
+                for (var m = 0; m < tabella.tBodies[z].rows.length; m++) {
+                    var y = document.createElement('td');
+                    y.appendChild(document.createTextNode('Nuovo Elemento'));
+                    tabella.tBodies[z].rows[m].appendChild(y);
+                }
+            }
+            document.getElementById('clicca').remove();
+        }
+    </script>
+
+
+</head>
+<body>
+    <h1>Esempio 5 - Tabella - <a href="Index.html">Home</a></h1>
+
+    <table id="MiaTabella" width="60%">
+        <caption>
+            Giorni di Giugno
+        </caption>
+        <thead bgcolor="#FFCC33">
+            <tr>
+                <th>Giorno</th>
+                <th>Mese</th>
+                <th>Anno</th>
+            </tr>
+        </thead>
+        <tfoot bgcolor="#66cc99">
+            <tr>
+                <td colspan="3">
+                    Parte finale della tabella
+                </td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>10</td>
+                <td>06</td>
+                <td>2007</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>06</td>
+                <td>2007</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>06</td>
+                <td>2007</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p id="clicca">
+        <a href="javascript:void(
+
+                    Aumenta()
+
+                  )
+                  ">ora cambiamo la tabella</a>
+    </p>
+</body>
+
+</html>

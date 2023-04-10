@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Capitolo 6 - Timer e interval</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+
+    <script>
+
+        var secondiIniziali = 5;
+
+        // crea una funzione di conteggio che scatta ogni secondo, ovvero ogni 1000 millisecondi, quando arriva a 5 è finito
+        var conta = setInterval(
+            function () {
+                secondiIniziali--;
+                if (secondiIniziali <= 0) {
+                    clearInterval(conta);
+                    document.getElementById('counterP').remove();
+                }
+                else {
+                    document.getElementById('counter').innerText = secondiIniziali;
+                }
+            }, 1000
+        );
+        function Tempo() {
+            //dopo 5 secondi viene chiamata la funzione Scrivi() ed immediatamente a seguire la Scrivi2()
+            var t = setTimeout("var myDiv = Scrivi();Scrivi2(myDiv)", 5000);
+        }
+
+        function Scrivi() {
+            // scrivo all'interno del DIV che sono passati 5 secondi
+            var m = document.getElementById('mioDiv');
+            m.innerText = "Chiamata funzione Scrivi() dopo timeout di 5 secondi";
+            return m;
+        }
+
+        function Scrivi2(mioDiv) {
+            // aggiunge al mioDiv altro test
+            mioDiv.innerText += " - Chiamato funzione Scrivi2()";
+        }
+
+
+        Tempo();
+    </script>
+
+
+</head>
+<body>
+    <p id="counterP">Scatta tra <span id="counter">5</span> secondi </p>
+    <div id="mioDiv"></div>
+</body>
+
+</html>

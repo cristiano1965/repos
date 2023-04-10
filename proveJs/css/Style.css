@@ -1,0 +1,23 @@
+﻿body {
+    background-color: lightblue;
+    text-align: center;
+}
+h1 {
+    font-family : Calibri;
+    font-size: 24px;
+
+
+}
+
+.error {
+    border: 2px solid red;
+}
+
+#mioDiv{
+    float: left;
+    width: 100px;
+    height:100px;
+    background-color: red;
+    font-weight: bold;
+    display: block;
+}

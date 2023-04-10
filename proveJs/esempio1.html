@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Esempio</title>
+    <link href="css/Style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+    <script src="js/main.js"></script>
+
+</head>
+<body>
+    <h1>Esempio 1 - Oggetti triangolo - <a href="Index.html">Home</a></h1>
+
+
+    Apre una <a href="javascript:avvisa()">finestra di avviso</a>
+
+    <script>
+
+        var t = new Triangolo(10, 15, 4);
+        var p1 = t.perimetro;
+        var t2 = new Triangolo(11, 12, 13);
+        var p2 = t2.perimetro;
+
+
+    </script>
+    <p>
+        Il perimetro del triangolo 1 vale
+        <script>document.write(p1)</script>
+    </p>
+    <p>
+        I perimetro del triangolo 2 vale
+        <script>document.write(p2)</script>
+    </p>
+
+
+</body>
+</html>
